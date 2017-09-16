@@ -5,6 +5,8 @@ function onReady(){
 
 $('#addPet').on('click', bookEm);
 getPetHotel();
+
+$('#petTable').on('click', '.delete', removePet);
 }
 
 function getPetHotel(){
@@ -21,6 +23,7 @@ function getPetHotel(){
                 $trow.append('<td>' + res[i].breed + '</td>');
                 $trow.append('<td>' + res[i].color + '</td>');
                 $trow.append('<td>' + res[i].checkedin + '</td>');
+                $trow.append('<td><button class="delete">Delete</button></td>');
                 $('#petTable').append($trow);
             } //end for loop
         } //end success
@@ -46,4 +49,8 @@ function bookEm(  ) {
             }
         })
     
+}
+
+function removePet(){
+    console.log('delete clicked');
 }
